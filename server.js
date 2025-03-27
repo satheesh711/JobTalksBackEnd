@@ -16,6 +16,12 @@ mongoose.connect(mongoURI)
 
 app.use(bodyParser.json());
 app.use(cors());
+app.use(cors({
+  origin: ['https://job-talks.vercel.app', 'https://your-render-app.onrender.com'],
+  methods: 'GET,POST,PUT,DELETE',
+  credentials: true
+}));
+
 
 const usersRoutes = require('./routes/users');
 const companiesRoutes = require('./routes/companies');
